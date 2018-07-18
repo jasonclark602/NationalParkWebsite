@@ -55,3 +55,30 @@ p.description{
 strong.location{
 	font-size:1.7em;
 }
+
+.est {
+	font-size: .6em;
+}
+
+.detailContainer {
+	padding: 11.7px;
+}
+
+table.parkInfo, td, th {
+	border: 1px solid grey;
+	border-collapse: collapse;
+}
+
+table.parkInfo th {
+	padding: 5px;
+}
+
+table.parkInfo td {
+	text-align: center;
+	padding: 2px;
+}
+
+.parkInfo .detailImg img {
+	height: 500px;
+	width: 100%;
+}
