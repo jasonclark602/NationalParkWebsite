@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.npgeek.dao.ParkDao;
+import com.techelevator.npgeek.dao.SurveyDao;
 import com.techelevator.npgeek.dao.WeatherDao;
 
 @Controller
@@ -17,6 +18,8 @@ public class NpGeekController {
 	private ParkDao parkDao;
 	@Autowired
 	private WeatherDao weatherDao;
+	@Autowired
+	private SurveyDao surveyDao;
 	
 	@RequestMapping(path = {"/", "/homePage"}, method = RequestMethod.GET)
 	public String displayHomePage(ModelMap modelHolder) {
@@ -33,12 +36,14 @@ public class NpGeekController {
 	}
 	
 	@RequestMapping(path = {"/surveyPage"}, method = RequestMethod.GET)
-	public String displaySurveyForm() {
+	public String displaySurveyForm(ModelMap modelHolder) {
+		modelHolder.put("parks", parkDao.getAllParks());
 		return "surveyPage";
 	}
 	
 	@RequestMapping(path = {"/surveyPage"}, method = RequestMethod.POST)
-	public String submitSurvey() {
+	public String submitSurvey(@RequestParam String parkCode, @RequestParam String emailAddress, @RequestParam String state, @RequestParam String activityLevel) {
+		surveyDao.saveNewSurvey(parkCode, emailAddress, state, activityLevel);
 		return "redirect:/surveyResult";
 	}
 	
