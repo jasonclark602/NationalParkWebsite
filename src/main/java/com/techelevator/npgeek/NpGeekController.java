@@ -31,4 +31,20 @@ public class NpGeekController {
 		modelHolder.put("weekWeather", weatherDao.getWeatherByParkCodeWeek(parkCode.toUpperCase()));
 		return "detailPage";
 	}
+	
+	@RequestMapping(path = {"/surveyPage"}, method = RequestMethod.GET)
+	public String displaySurveyForm() {
+		return "surveyPage";
+	}
+	
+	@RequestMapping(path = {"/surveyPage"}, method = RequestMethod.POST)
+	public String submitSurvey() {
+		return "redirect:/surveyResult";
+	}
+	
+	@RequestMapping(path = "/surveyResult", method= RequestMethod.GET)
+	public String showSurveyResults() {
+		return "surveyResult";
+		
+	}
 }

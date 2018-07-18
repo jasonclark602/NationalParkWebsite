@@ -41,8 +41,66 @@
 	<div class="weatherDiv">
 		<div class="todayWeather">
 			<c:forEach var="todayForecast" items="${todayWeather}">
+			<br>
+			<h4 class = "title"><c:out value = " Today"/></h4>
+			<c:url var = "forecastImageUrl" value = "/img/weather/${todayForecast.forecast }.png"/>
+			<img src = "${forecastImageUrl }"/>
+			<div class = "highLow"><c:out value = "Low: ${todayForecast.low }   High: ${todayForecast.high }"/></div>
+			<div class = "forecast"><c:out value = "Forecast: ${todayForecast.forecast }"/></div>
+			<c:choose>
+				<c:when test = "${todayForecast.forecast.equals('snow') }">
+				<div class = "reccomendation"><c:out value = "Pack Snow Shoes!"/></div>
+				</c:when>
+				
+				<c:when test = "${todayForecast.forecast.equals('rain') }">
+				<div class = "reccomendation"><c:out value = "Pack Rain Gear and Waterproof Shoes!"/></div>
+				</c:when>
+				
+				<c:when test = "${todayForecast.forecast.equals('thunderstorms') }">
+				<div class = "reccomendation"><c:out value = "Seek Shelter and Avoid Hiking on Exposed Ridges!"/></div>
+				</c:when>
+				
+				<c:when test = "${todayForecast.forecast.equals('sunny') }">
+				<div class = "reccomendation"><c:out value = "Pack Sunblock!"/></div>
+				</c:when>
+			
+			
+			</c:choose>
+			
+			<c:choose>
+				<c:when test = "${todayForecast.high > 75 }">
+				<div class = "reccomendation"><c:out value = "Bring an Extra Gallon of Water!"/></div>
+				</c:when>
+				
+				<c:when test = "${todayForecast.low < 20 }">
+				<div class = "reccomendation"><c:out value = "Be Careful of Frigid Temperatures, Stay Warm!"/></div>
+				</c:when>
+				
+				<c:when test = "${todayForecast.high - todayForecast.low > 20}">
+				<div class = "reccomendation"><c:out value = "Wear Breathable Layers!"/></div>
+				</c:when>
+			
+			
+			</c:choose>
+			
 				
 			</c:forEach>
+		</div>
+		
+		<div class = "weekWeather">
+		
+				<c:forEach var = "weekWeather" items = "${weekWeather }">
+					<div class = "weatherDay"><c:url var = "forecastImageUrl" value = "/img/weather/${weekWeather.forecast }.png"/>
+					<div class = "weeklyImages"><img src = "${forecastImageUrl }"/></div>
+					<div class = "highLow2"><c:out value = "Low: ${weekWeather.low }"/></div>
+					<div class = "highLow2"><c:out value = "High: ${weekWeather.high }"/></div>
+					</div>
+				
+				
+				</c:forEach>
+		
+		
+		
 		</div>
 	</div>
 </div>

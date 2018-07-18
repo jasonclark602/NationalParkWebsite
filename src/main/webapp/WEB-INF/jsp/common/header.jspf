@@ -23,6 +23,7 @@
    		
    		<a href = "homePage" class = "btn homeButton">Home</a>
    		<a href = "surveyPage" class = "btn surveyButton">Survey</a>
+   		<a href = "surveyResult" class = "btn surveyButton">Favorite Parks!</a>
  
    		</nav>
    		
