@@ -1,10 +1,7 @@
 package com.techelevator.npgeek;
 
-import java.lang.ProcessBuilder.Redirect;
-
 import javax.servlet.http.HttpSession;
 
-import org.apache.bcel.generic.SWITCH;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
