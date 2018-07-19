@@ -1,5 +1,10 @@
 package com.techelevator.npgeek;
 
+import java.lang.ProcessBuilder.Redirect;
+
+import javax.servlet.http.HttpSession;
+
+import org.apache.bcel.generic.SWITCH;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -35,6 +40,21 @@ public class NpGeekController {
 		return "detailPage";
 	}
 	
+	@RequestMapping(path = {"/switchTempUnit"}, method = RequestMethod.POST)
+	public String switchTempUnit(@RequestParam String tempUnit,@RequestParam String parkCode ,HttpSession userSession) {
+		if(tempUnit.equals("Celsius")) {
+		userSession.setAttribute("tempUnit", tempUnit);
+		
+		}else if (tempUnit.equals("Fahrenheit")) {
+			userSession.setAttribute("tempUnit", tempUnit);
+		} 
+		
+		
+		return "redirect:/detailPage?parkCode=" + parkCode;
+	}
+	
+
+	
 	@RequestMapping(path = {"/surveyPage"}, method = RequestMethod.GET)
 	public String displaySurveyForm(ModelMap modelHolder) {
 		modelHolder.put("parks", parkDao.getAllParks());
@@ -54,4 +74,6 @@ public class NpGeekController {
 		return "surveyResult";
 		
 	}
+	
+	
 }
