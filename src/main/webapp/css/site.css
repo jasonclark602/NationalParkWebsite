@@ -142,7 +142,7 @@ div.weatherDay{
 	
 	top:50%;
 	transform:translateY(-50%);
-	padding-left:5 0px;
+	padding-left:5px;
 	
 	
 }
@@ -153,4 +153,10 @@ h1.favoriteParksHeader{
 
 .surveyCount{
 	font-size: 15pt;
+}
+
+a.button{
+
+	color:black;
+	
 }

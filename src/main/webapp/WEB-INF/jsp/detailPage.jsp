@@ -27,7 +27,7 @@
 				<td><c:out value="${park.annualVisitorCount}" /></td>
 				<td><c:out value="${park.climate}" /></td>
 				<td><c:out value="${park.elevationInFeet}" /></td>
-				<td><c:out value="$${park.entryFee}" /></td>
+				<td><c:out value="$${park.entryFee}" /></td> 
 				<td><c:out value="${park.milesOfTrail}" /></td>
 				<td><c:out value="${park.numberOfAnimalSpecies}" /></td>
 				<td><c:out value="${park.numberOfCampsites}" /></td>
@@ -36,7 +36,9 @@
 		</table>
 		<h3><c:out value="Description:" /></h3>
 		<p><c:out value="${park.parkDescription}" /></p>
-		</div>
+		</div> 
+		<br>
+		<a class = "button btn btn-default" href = "" >Change To Celsius</a>
 	</div>
 	<div class="weatherDiv">
 		<div class="todayWeather">
@@ -86,6 +88,8 @@
 				
 			</c:forEach>
 		</div>
+		
+		
 		
 		<div class = "weekWeather">
 		
