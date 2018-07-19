@@ -147,3 +147,10 @@ div.weatherDay{
 	
 }
 
+h1.favoriteParksHeader{
+	text-align:center;
+}
+
+.surveyCount{
+	font-size: 15pt;
+}

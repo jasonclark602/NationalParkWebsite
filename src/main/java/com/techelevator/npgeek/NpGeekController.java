@@ -25,7 +25,7 @@ public class NpGeekController {
 	public String displayHomePage(ModelMap modelHolder) {
 		modelHolder.put("parks", parkDao.getAllParks());
 		return "homePage";
-	}
+	} 
 	
 	@RequestMapping(path = {"/detailPage"}, method = RequestMethod.GET)
 	public String displayDetailPage(ModelMap modelHolder, @RequestParam String parkCode) {
@@ -48,7 +48,9 @@ public class NpGeekController {
 	}
 	
 	@RequestMapping(path = "/surveyResult", method= RequestMethod.GET)
-	public String showSurveyResults() {
+	public String showSurveyResults(ModelMap modelHolder) {
+		modelHolder.put("favoriteParks" , surveyDao.getFavoriteParks());
+		
 		return "surveyResult";
 		
 	}
